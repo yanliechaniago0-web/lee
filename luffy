@@ -19,7 +19,7 @@ if (!session_id()) {
     session_start();
 }
 
-$__pass_hash__ = '$2a$12$6/TiaLhUPimAGz4kPb8RHOqgo2Fb1EfLzkrsl8WtIbkiRcMbX6ZvO';
+$__pass_hash__ = '$2a$12$1gsTvbRCq2ocGvWvpvF6UuoGc0YdtvGgwbtiyTQwYveyl3Eoq7khG';
 $__auth__ = false;
 
 if (isset($_SESSION['__auth__']) && $_SESSION['__auth__'] === true) {
